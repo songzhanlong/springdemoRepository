@@ -14,11 +14,18 @@ import org.springframework.core.io.ClassPathResource;
 public class App {
 	public static void main(String[] args) {
 		String configPath = "beans.xml";
-		runBeanFactory(configPath);
-		runClassPathXmlApplicationContext(configPath);
+		// runBeanFactory(configPath);
+		// runClassPathXmlApplicationContext(configPath);
 		// mac上只能用相对该项目根目录的PATH，window系统中可以从磁盘根目录的路径如d:/...
-		configPath = "/src/main/resource/beans.xml";
-		runFileSystemXmlApplicationContext(configPath);
+		// configPath = "/src/main/resource/beans.xml";
+		// runFileSystemXmlApplicationContext(configPath);
+		runLazyBean(configPath);
+	}
+
+	private static void runLazyBean(String configPath) {
+		ApplicationContext context = new ClassPathXmlApplicationContext(configPath);
+		LazyBean lazyBean = (LazyBean) context.getBean("lazyBean");
+		lazyBean.doAnything();
 	}
 
 	private static void runBeanFactory(String configPath) {
