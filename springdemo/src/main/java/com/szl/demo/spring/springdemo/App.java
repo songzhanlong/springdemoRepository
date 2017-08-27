@@ -15,16 +15,26 @@ public class App {
 	public static void main(String[] args) {
 		String configPath = "beans.xml";
 		runBeanFactory(configPath);
-		runClassPathXmlApplicationContext(configPath);
+		// runClassPathXmlApplicationContext(configPath);
 		// mac上只能用相对该项目根目录的PATH，window系统中可以从磁盘根目录的路径如d:/...
-		configPath = "/src/main/resource/beans.xml";
-		runFileSystemXmlApplicationContext(configPath);
+		// configPath = "/src/main/resource/beans.xml";
+		// runFileSystemXmlApplicationContext(configPath);
 	}
 
 	private static void runBeanFactory(String configPath) {
 		BeanFactory factory = new XmlBeanFactory(new ClassPathResource(configPath));
 		HelloWorld helloWorld = (HelloWorld) factory.getBean("helloWorld");
 		System.out.println(helloWorld.getMessage());
+		helloWorld.setMessage("singletom");
+		HelloWorld helloWorld2 = (HelloWorld) factory.getBean("helloWorld");
+		System.out.println(helloWorld2.getMessage());
+
+		Hello hello = (Hello) factory.getBean("hello");
+		System.out.println(hello.getMessage());
+		hello.setMessage("prototype");
+		Hello hello2 = (Hello) factory.getBean("hello");
+		System.out.println(hello2.getMessage());
+
 	}
 
 	private static void runClassPathXmlApplicationContext(String configPath) {
