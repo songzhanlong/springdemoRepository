@@ -3,6 +3,7 @@ package com.szl.demo.spring.springdemo;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
@@ -28,10 +29,12 @@ public class App {
 	}
 
 	private static void runClassPathXmlApplicationContext(String configPath) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(configPath);
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext(configPath);
 		Student student = (Student) context.getBean("student");
 		System.out.println("Name : " + student.getName());
 		System.out.println("Age : " + student.getAge());
+		student.getHome().printAddress();
+		context.registerShutdownHook();
 	}
 
 	private static void runFileSystemXmlApplicationContext(String configPath) {

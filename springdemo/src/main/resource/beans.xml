@@ -15,4 +15,5 @@
       <property name="name"  value="Zara" />
       <property name="age"  value="11"/>
    </bean>
+   <bean id="home" class="com.szl.demo.spring.springdemo.Home"></bean>
 </beans>
