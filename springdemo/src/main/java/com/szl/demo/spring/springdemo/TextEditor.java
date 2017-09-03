@@ -6,6 +6,7 @@ public class TextEditor {
 	private SpellChecker spellChecker;
 	@Autowired
 	private Student student;
+	private SayHi sayHi;
 
 	@Autowired
 	public void setSpellChecker(SpellChecker spellChecker) {
@@ -24,4 +25,14 @@ public class TextEditor {
 		System.out.println(student.getName() + "'s age is " + student.getAge());
 	}
 
+	@Autowired
+	public TextEditor(SayHi sayHi) {
+		super();
+		System.out.println("Inside TextEditor constructor.");
+		this.sayHi = sayHi;
+	}
+
+	public void sayHi() {
+		sayHi.sayHi();
+	}
 }
