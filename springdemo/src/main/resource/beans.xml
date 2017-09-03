@@ -13,6 +13,9 @@
 	<bean id="student" class="com.szl.demo.spring.springdemo.Student">
 		<property name="name" value="Zara" />
 	</bean>
+	<bean id="student1" class="com.szl.demo.spring.springdemo.Student">
+		<property name="name" value="Tom" />
+	</bean>
 	<!-- Definition for textEditor bean without constructor-arg -->
 	<bean id="textEditor" class="com.szl.demo.spring.springdemo.TextEditor">
 	</bean>
@@ -21,4 +24,5 @@
 	<bean id="spellChecker" class="com.szl.demo.spring.springdemo.SpellChecker">
 	</bean>
 	<bean id="sayHi" class="com.szl.demo.spring.springdemo.SayHi"></bean>
+	<bean id="profile" class="com.szl.demo.spring.springdemo.Profile"></bean>
 </beans>

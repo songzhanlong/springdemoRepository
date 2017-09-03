@@ -33,6 +33,10 @@ public class App {
 		te.spellCheck();
 		te.printStudent();
 		te.sayHi();
+		Profile profile = (Profile) context.getBean("profile");
+		profile.printName();
+		System.out.print("'s age is ");
+		profile.printAge();
 	}
 
 	private static void runFileSystemXmlApplicationContext(String configPath) {
