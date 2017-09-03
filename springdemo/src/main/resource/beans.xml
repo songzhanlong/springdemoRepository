@@ -12,7 +12,6 @@
 	<!-- Definition for student bean -->
 	<bean id="student" class="com.szl.demo.spring.springdemo.Student">
 		<property name="name" value="Zara" />
-		<property name="age" value="11" />
 	</bean>
 	<!-- Definition for textEditor bean without constructor-arg -->
 	<bean id="textEditor" class="com.szl.demo.spring.springdemo.TextEditor">
