@@ -31,6 +31,7 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext(configPath);
 		TextEditor te = (TextEditor) context.getBean("textEditor");
 		te.spellCheck();
+		te.printStudent();
 	}
 
 	private static void runFileSystemXmlApplicationContext(String configPath) {

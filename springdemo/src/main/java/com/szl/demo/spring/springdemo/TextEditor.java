@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class TextEditor {
 	private SpellChecker spellChecker;
+	@Autowired
+	private Student student;
 
 	@Autowired
 	public void setSpellChecker(SpellChecker spellChecker) {
@@ -17,4 +19,9 @@ public class TextEditor {
 	public void spellCheck() {
 		spellChecker.checkSpelling();
 	}
+
+	public void printStudent() {
+		System.out.println(student.getName() + "'s age is " + student.getAge());
+	}
+
 }
