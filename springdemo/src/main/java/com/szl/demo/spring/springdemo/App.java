@@ -29,9 +29,8 @@ public class App {
 
 	private static void runClassPathXmlApplicationContext(String configPath) {
 		ApplicationContext context = new ClassPathXmlApplicationContext(configPath);
-		Student student = (Student) context.getBean("student");
-		System.out.println("Name : " + student.getName());
-		System.out.println("Age : " + student.getAge());
+		TextEditor te = (TextEditor) context.getBean("textEditor");
+		te.spellCheck();
 	}
 
 	private static void runFileSystemXmlApplicationContext(String configPath) {
