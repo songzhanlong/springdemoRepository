@@ -14,11 +14,11 @@ import org.springframework.core.io.ClassPathResource;
 public class App {
 	public static void main(String[] args) {
 		String configPath = "beans.xml";
-		runBeanFactory(configPath);
+		// runBeanFactory(configPath);
 		runClassPathXmlApplicationContext(configPath);
 		// mac上只能用相对该项目根目录的PATH，window系统中可以从磁盘根目录的路径如d:/...
-		configPath = "/src/main/resource/beans.xml";
-		runFileSystemXmlApplicationContext(configPath);
+		// configPath = "/src/main/resource/beans.xml";
+		// runFileSystemXmlApplicationContext(configPath);
 	}
 
 	private static void runBeanFactory(String configPath) {
@@ -29,8 +29,10 @@ public class App {
 
 	private static void runClassPathXmlApplicationContext(String configPath) {
 		ApplicationContext context = new ClassPathXmlApplicationContext(configPath);
-		HelloWorld helloWorld = (HelloWorld) context.getBean("helloWorld");
-		System.out.println(helloWorld.getMessage());
+		Student student = (Student) context.getBean("student");
+		student.getName();
+		student.getAge();
+		student.printThrowException();
 	}
 
 	private static void runFileSystemXmlApplicationContext(String configPath) {
